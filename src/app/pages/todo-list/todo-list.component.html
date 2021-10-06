@@ -1,3 +1,23 @@
-<p>todo-list works!</p>
-<app-todo-chip></app-todo-chip>
-<app-todo-chips-list></app-todo-chips-list>
+<app-todo-chips-list [todos]="todos" (OnContextMenu)="onContextMenu($event)" (updatedTable)=updateTable($event)>
+
+
+</app-todo-chips-list>
+
+<button (click)="openDialog()"></button>
+<!-- <p (contextmenu)="onContextMenu($event, todos[1])">Right-click on the items below to show the context menu:</p> -->
+
+<div style="visibility: hidden; position: fixed"
+[ngStyle]="{'bottom':contextMenuPosition.x}"
+    [style.left]="contextMenuPosition.x"
+    [style.top]="contextMenuPosition.y"
+    [matMenuTriggerFor]="contextMenu">
+</div>
+<mat-menu #contextMenu="matMenu">
+	<ng-template matMenuContent let-item="item">
+		<button  (click)="onContextMenuAction1(item)">Edit Task</button>
+		<button *ngIf="item.State"  (click)="onContextMenuAction2(item)">Reactive Task</button>
+		<button *ngIf="!item.State"  disabled>Reactive Task</button>
+	</ng-template>
+</mat-menu>
+
+

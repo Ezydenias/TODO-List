@@ -4,16 +4,17 @@ import { CommonModule } from '@angular/common';
 import { TODOListRoutingModule } from './todo-list-routing.module';
 import { TODOListComponent } from '../todo-list/todo-list.component';
 import { ComponentsModule } from 'src/app/components/components.module';
-
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [
-    TODOListComponent
-  ],
+  declarations: [TODOListComponent],
   imports: [
     CommonModule,
     TODOListRoutingModule,
     ComponentsModule,
-  ]
+    MatMenuModule,
+    MatDialogModule,
+  ],
 })
-export class TODOListModule { }
+export class TODOListModule {}
