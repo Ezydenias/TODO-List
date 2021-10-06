@@ -1,0 +1,26 @@
+app-todo-chip {
+  flex: 1;
+}
+
+.list{
+  // align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.elements-grid {
+  display: grid;
+  grid-gap: 10px;
+  @media (max-width: 630px) {
+    width: 400px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media (min-width: 630px) and (max-width: 1000px) {
+    width: 700px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 1000px) {
+    width: 1050px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

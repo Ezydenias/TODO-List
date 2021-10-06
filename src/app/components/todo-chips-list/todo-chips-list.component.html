@@ -1,1 +1,5 @@
-<p>todo-chips-list works!</p>
+<span class="list">
+  <span class="elements-grid">
+    <app-todo-chip *ngFor="let todo of todos" [todo]=todo (crossed)=crossedOut($event) (contextmenu)="onContextMenu($event, todo)"></app-todo-chip>
+  </span>
+</span>

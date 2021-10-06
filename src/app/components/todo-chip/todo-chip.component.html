@@ -1,1 +1,1 @@
-<p>todo-chip works!</p>
+<div class="chip" [ngClass]="{active: !todo.State, deactive: todo.State}"><span class="text">{{todo.Label}}</span><span *ngIf="todo.State==false" style="flex: 1" (click)="crossOut()"><img src="/assets/icons/cross.svg" ></span></div>
