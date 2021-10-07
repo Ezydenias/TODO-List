@@ -1,20 +1,19 @@
 <div class="edit-task">
   <img class="roo-image-edit" src="/assets/icons/kangaroo_standing.svg">
   <span>
+    <!-- changed the headline based on if we make a new entry or update and old one -->
     <p *ngIf="data.todo.Id == 0">Add Task</p>
     <p *ngIf="data.todo.Id != 0">Edit Task</p>
   </span>
-
+  <!-- the form group starts here to check if everything is filled in -->
   <span [formGroup]="taskForm" style="display: flex; flex-direction: column">
-  <input formControlName="label" style="flex: 1" type="text" id="Label" name="Label" placeholder="Task" value="{{data.todo.label}}"/>
-  <textarea formControlName="todo" type="text" id="Todo" name="Todo" placeholder="Description">{{data.todo.todo}}</textarea>
-  <input formControlName="dueDate" type="date" id="dueDate" name="dueDate" value="{{data.todo.DueDate}}">
-</span>
-
+    <input formControlName="label" style="flex: 1" type="text" id="Label" name="Label" placeholder="Task" value="{{data.todo.label}}"/>
+    <textarea formControlName="todo" type="text" id="Todo" name="Todo" placeholder="Description">{{data.todo.todo}}</textarea>
+    <input formControlName="dueDate" type="date" id="dueDate" name="dueDate" value="{{data.todo.DueDate}}">
+  </span>
   <span>
     <button (click)="closeDialog()">Cancel</button>
+    <!-- if everything is filled in the task can be added or updated -->
     <button class="primary-button" (click)="saveTask()" [disabled]="!taskForm.valid">Save</button>
   </span>
-
-
 </div>

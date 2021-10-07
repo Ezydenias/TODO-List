@@ -22,6 +22,7 @@ export class TODOChipsListComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //when crossed out makes sure the data is also crossed out in their table and emits the new table to the parent class
   crossedOut(Id:number)
   {
     const index = this.todos.findIndex(obj => obj.Id == Id);
@@ -29,20 +30,17 @@ export class TODOChipsListComponent implements OnInit {
     this.updatedTable.emit(this.todos);
   }
 
+  //when item is togled emmiots the whole list to the parent directive to keep information consistent
   toggled(Id:number){
-    // const index = this.todos.findIndex(obj => obj.Id == Id);
-    // console.log(this.todos[index].State);
-    // this.todos[index].State=!this.todos[index].State;
     this.updatedTable.emit(this.todos);
   }
 
+  //this was used to give the content menu the correct data and position, this was dropped and just remains here as example code
   onContextMenu(event: MouseEvent, item: ITODO) {
-
-    // console.log(event.movementX);
-    // console.log(event.screenY);
     this.OnContextMenu.emit({event,item});
   }
 
+    //throws an even for the edit dialog to be handled in the parent component
   editTodo(id: number){
     this.onEditTodo.emit(id);
   }

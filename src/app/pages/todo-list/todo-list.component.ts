@@ -13,8 +13,20 @@ import { DatePipe } from '@angular/common';
 })
 export class TODOListComponent implements OnInit {
   todos: ITODO[] = [
-    { Id: 4, Label: 'roo you too', TODO: 'romo', State: false, DueDate: new Date() },
-    { Id: 5, Label: 'drink with an wallaroo', TODO: 'drink him under the table', State: false, DueDate: new Date('December 17, 1995 03:24:00') },
+    {
+      Id: 4,
+      Label: 'roo you too',
+      TODO: 'romo',
+      State: false,
+      DueDate: new Date(),
+    },
+    {
+      Id: 5,
+      Label: 'drink with an wallaroo',
+      TODO: 'drink him under the table',
+      State: false,
+      DueDate: new Date('December 17, 1995 03:24:00'),
+    },
   ];
 
   @ViewChild(MatMenuTrigger) contextMenu: MatMenuTrigger;
@@ -23,33 +35,37 @@ export class TODOListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadTable();
-    this.sortTable();
+    //this.sortTable();
   }
 
+  //updates table with new content
   updateTable(table: ITODO[]) {
     this.todos = table;
     // this.sortTable();
     this.saveTable();
   }
 
+  //laods table from the local storage
   loadTable() {
     const retrievedData = localStorage.getItem('todos');
     if (retrievedData != null) {
       this.todos = JSON.parse(retrievedData);
-    }
-    else{
-      console.log("no save");
+    } else {
+      console.log('no save');
     }
   }
 
+  //saves table on the local storage
   saveTable() {
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
+  //this was supposed th sort the local table so the checked tasks where all on the bottom of the list, but it didn't worked out
   sortTable() {
     this.todos.sort((a, b) => (a.State != b.State ? 1 : -1));
   }
 
+  //clears todo table from all entries that are marked as done, if a server was connected a service would be created to handle this
   clearTodoTable() {
     let found = 1;
     while (found > 0) {
@@ -64,13 +80,33 @@ export class TODOListComponent implements OnInit {
     this.saveTable();
   }
 
-  //opens new/edit Todo Dialog
+  //gives a new unused Id
+  getNewId(): number {
+    //A really dumb implementation used to mimic the server behaivor, if a server was used this would use a service to get the next available Id from the server directly (probably)
+    let i = 1;
+    while (i < this.todos.length) {
+      if (!this.todos[this.todos.findIndex((obj) => obj.Id == i)]) {
+        return i;
+      }
+      i++;
+    }
+    return this.todos.length + 1;
+  }
+
+  //opens new/edit Todo Dialog, depending on if it is an existing entry or a new entry
   openTodoDialog(newEntry: boolean, Id: number): void {
     const dialogRef = this.dialog.open(EditTodoComponent, {
       data: {
         todo: newEntry
-          ? { Id: 0, Label: '', TODO: '', State: false, DueDate: this.datePipe.transform(new Date(), 'yyyy-MM-dd') }
+          ? {
+              Id: 0,
+              Label: '',
+              TODO: '',
+              State: false,
+              DueDate: this.datePipe.transform(new Date(), 'yyyy-MM-dd'),
+            }
           : this.todos[this.todos.findIndex((obj) => obj.Id == Id)],
+        newId: newEntry ? this.getNewId() : 0,
       },
     });
 

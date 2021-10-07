@@ -1,6 +1,9 @@
+<!-- the background will be colored differently depending if this todo is yet done or not -->
 <div class="chip" [ngClass]="{active: !todo.State, deactive: todo.State}">
   <span class="text" (click)="toggle()">{{todo.Label}}</span>
-  <span *ngIf="isToday(todo.DueDate) && todo.State==false" style="flex: 1" ><img src="/assets/icons/alarm.svg" ></span>
-  <span *ngIf="todo.State==false" style="flex: 1" (click)="editTodo()"><img src="/assets/icons/hamburger-icon.svg" ></span>
-  <span *ngIf="todo.State==true" style="flex: 1" (click)="editTodo()"><img src="/assets/icons/hamburger-icon-disabled.svg" ></span>
+  <!-- if the task should have been done in the past and is still undone a little red light will light up -->
+  <span *ngIf="isToday(todo.DueDate) && todo.State==false" style="flex: 1" ><img src="/assets/icons/alarm.svg"></span>
+  <!-- if task is set done or not, it will display the correctly colored Hamburger Menu, this probably done in a far more elegent solution, but I like how accuratly this works -->
+  <span *ngIf="todo.State==false" style="flex: 1" (click)="editTodo()"><img src="/assets/icons/hamburger-icon.svg"></span>
+  <span *ngIf="todo.State==true" style="flex: 1" (click)="editTodo()"><img src="/assets/icons/hamburger-icon-disabled.svg"></span>
 </div>

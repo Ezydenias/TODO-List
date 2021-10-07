@@ -14,18 +14,20 @@ export class EditTodoComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<EditTodoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private datePipe: DatePipe
+    public datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {
     this.dialogRef.disableClose = true;
 
+    //creating the From Group Elements
     this.taskForm = new FormGroup({
       label: new FormControl(null, [Validators.required]),
       todo: new FormControl(null, [Validators.required]),
       dueDate: new FormControl(null, [Validators.required]),
     });
 
+    //patches the value with the values gotten by the parent component
     this.taskForm.patchValue({
       label: this.data.todo.Label,
       todo: this.data.todo.TODO,
@@ -37,11 +39,13 @@ export class EditTodoComponent implements OnInit {
     this.dialogRef.close('roo-burger');
   }
 
+  //closes the dialog and tells the parent component to do nothing
   closeDialog() {
     this.dialogRef.close();
   }
 
   saveTask() {
+    //if the ID was 0 it makes a new object using the newId value since this is a new entry
     if (this.data.todo.Id == 0) {
       this.dialogRef.close({
         Id: this.data.newId,
@@ -50,6 +54,7 @@ export class EditTodoComponent implements OnInit {
         State: this.data.todo.State,
         DueDate: this.taskForm.get('dueDate')?.value,
       });
+      //else it will uise the Id given in todo since it is updating an old entry
     } else {
       this.dialogRef.close({
         Id: this.data.todo.Id,

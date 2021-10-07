@@ -1,18 +1,29 @@
 <header>
-<button (click)="openTodoDialog(true,0)">Add New Task</button> <h1>Remember like a Wallaroo</h1>
+  <!-- clicken the button will open the new dialoge -->
+  <button (click)="openTodoDialog(true,0)">Add New Task</button>
+  <h1>Remember like a Wallaroo</h1>
 </header>
 
+<!-- this will show the list and keep it in the center of the page -->
 <div class="list-centraliser">
-  <!-- <app-todo-chips-list [todos]="todos" (OnContextMenu)="onContextMenu($event)" (updatedTable)=updateTable($event)> -->
   <app-todo-chips-list [todos]="todos" (onEditTodo)="editTodo($event)" (updatedTable)=updateTable($event)>
   </app-todo-chips-list>
 </div>
 
+<!-- clear Icon, clicking will start the clear modal -->
 <img class="clear-image-list" src="/assets/icons/clear.svg" (click)="openClearDialog()">
 
+<!-- this will generate the background, note the grass on the bottom is in the foreground uhhh fancy -->
 <img class="grass-image-list" src="/assets/icons/grass.svg">
 <img class="palm-right-image-list" src="/assets/icons/palm-left.svg">
 <img class="palm-left-image-list" src="/assets/icons/palm-right.svg">
+
+
+
+
+
+
+
 
 
 <!-- Depricated context menu, just for show -->

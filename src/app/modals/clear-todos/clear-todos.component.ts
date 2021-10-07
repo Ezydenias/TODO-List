@@ -11,10 +11,12 @@ export class ClearTodosComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //closes the dialog telling the parrent component to clear the todo list from the done todos
   clearTodos() {
     this.dialogRef.close(true);
   }
 
+  //closes the dialog telling the parrent component to do nothing
   closeDialog() {
     this.dialogRef.close(false);
   }

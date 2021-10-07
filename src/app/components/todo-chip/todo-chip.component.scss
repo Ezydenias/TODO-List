@@ -20,8 +20,7 @@ img {
   flex: 10;
   font-size: large;
   font-weight: bold;
-  font-family: "Courgette","Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-
+  font-family: "Courgette", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   /* Required for text-overflow to do anything */
   text-overflow: ellipsis;
@@ -31,11 +30,11 @@ img {
 }
 
 .active{
-   background-image: linear-gradient(180deg, #ece5cb,#ccc6af,#aaa48c,#9e8f79,#755f45);
-   color: #ece5cb;
+  background-image: linear-gradient(180deg, #ece5cb,#ccc6af,#aaa48c,#9e8f79,#755f45);
+  color: #ece5cb;
 }
 
 .deactive{
-  background-image: linear-gradient(180deg, #d6d6d6,#bbbbbb,#8f8f8f,#7a7a7a,#424242);
-  color: #2b2b2b;
+ background-image: linear-gradient(180deg, #d6d6d6,#bbbbbb,#8f8f8f,#7a7a7a,#424242);
+ color: #2b2b2b;
 }

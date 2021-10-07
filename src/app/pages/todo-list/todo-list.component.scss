@@ -6,63 +6,67 @@
   place-content: center;
   align-items: center;
 
-  button{
+  button {
     width: 100px;
   }
 }
 
-.list-centraliser{
+.list-centraliser {
   text-align: -webkit-center;
 }
 
-.grass-image-list{
+.grass-image-list {
   width: 100%;
-  opacity: .5f;
+  opacity: 0.5f;
   position: fixed;
-  z-index:3;
+  z-index: 3;
   bottom: 0;
   left: 0;
 }
 
-.palm-left-image-list{
+.palm-left-image-list {
   width: 100%;
-  opacity: .5f;
+  opacity: 0.5f;
   position: fixed;
-  z-index:-1;
+  z-index: -1;
   bottom: 0;
   left: 0;
 }
 
-.palm-right-image-list{
+.palm-right-image-list {
   width: 100%;
-  opacity: .5f;
+  opacity: 0.5f;
   position: fixed;
-  z-index:-1;
+  z-index: -1;
   bottom: 0;
   left: 0;
 }
 
-.clear-image-list{
+.clear-image-list {
   width: 80px;
   position: fixed;
-  z-index:5;
+  z-index: 5;
   bottom: 10px;
   left: 10px;
   filter: drop-shadow(0px 2px 2px #6b6b6b8f);
 }
 
-body{
+.clear-image-list:active{
+  filter: brightness(50%);
+}
+
+body {
   height: 100%;
 }
 
-h1{
+h1 {
   font-size: 20px;
-  font-family: "Drift","Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Drift", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-top: 15px;
   margin-bottom: 15px;
   color: rgb(83, 60, 39);
 }
 
-header{
+header {
   display: flex;
 }

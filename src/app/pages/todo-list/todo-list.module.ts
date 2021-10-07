@@ -6,7 +6,7 @@ import { TODOListComponent } from '../todo-list/todo-list.component';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
-import {DatePipe} from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [TODOListComponent],
@@ -17,6 +17,6 @@ import {DatePipe} from '@angular/common';
     MatMenuModule,
     MatDialogModule,
   ],
-  providers: [DatePipe]
+  providers: [DatePipe],
 })
 export class TODOListModule {}

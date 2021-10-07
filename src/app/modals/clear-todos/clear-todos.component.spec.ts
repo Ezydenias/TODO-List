@@ -8,9 +8,8 @@ describe('ClearTodosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClearTodosComponent ]
-    })
-    .compileComponents();
+      declarations: [ClearTodosComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
