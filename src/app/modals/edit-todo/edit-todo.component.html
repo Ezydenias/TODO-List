@@ -1,1 +1,20 @@
-<p>edit-todo works!</p>
+<div class="edit-task">
+  <img class="roo-image-edit" src="/assets/icons/kangaroo_standing.svg">
+  <span>
+    <p *ngIf="data.todo.Id == 0">Add Task</p>
+    <p *ngIf="data.todo.Id != 0">Edit Task</p>
+  </span>
+
+  <span [formGroup]="taskForm" style="display: flex; flex-direction: column">
+  <input formControlName="label" style="flex: 1" type="text" id="Label" name="Label" placeholder="Task" value="{{data.todo.label}}"/>
+  <textarea formControlName="todo" type="text" id="Todo" name="Todo" placeholder="Description">{{data.todo.todo}}</textarea>
+  <input formControlName="dueDate" type="date" id="dueDate" name="dueDate" value="{{data.todo.DueDate}}">
+</span>
+
+  <span>
+    <button (click)="closeDialog()">Cancel</button>
+    <button class="primary-button" (click)="saveTask()" [disabled]="!taskForm.valid">Save</button>
+  </span>
+
+
+</div>

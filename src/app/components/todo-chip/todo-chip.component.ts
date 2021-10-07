@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ITODO } from 'src/app/interfaces/ITODO';
 
@@ -15,13 +16,38 @@ export class TODOChipComponent implements OnInit {
     DueDate: new Date(),
   };
   @Output() crossed = new EventEmitter<number>();
+  @Output() toggled = new EventEmitter<number>();
+  @Output() onEditTodo = new EventEmitter<number>();
 
-  constructor() {}
+  constructor(private datePipe: DatePipe) {}
 
   ngOnInit(): void {}
 
   crossOut() {
     this.todo.State = true;
     this.crossed.emit(this.todo.Id);
+  }
+
+  toggle() {
+    this.todo.State = !this.todo.State;
+    this.toggled.emit(this.todo.Id);
+  }
+
+  editTodo() {
+    this.onEditTodo.emit(this.todo.Id);
+  }
+
+  isToday(date: Date): boolean {
+    const currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+    const inputDate = this.datePipe.transform(date, 'yyyy-MM-dd');
+    if (currentDate != null && inputDate != null) {
+      if (inputDate < currentDate) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 }

@@ -1,9 +1,21 @@
-<app-todo-chips-list [todos]="todos" (OnContextMenu)="onContextMenu($event)" (updatedTable)=updateTable($event)>
+<header>
+<button (click)="openTodoDialog(true,0)">Add New Task</button> <h1>Remember like a Wallaroo</h1>
+</header>
+
+<div class="list-centraliser">
+  <!-- <app-todo-chips-list [todos]="todos" (OnContextMenu)="onContextMenu($event)" (updatedTable)=updateTable($event)> -->
+  <app-todo-chips-list [todos]="todos" (onEditTodo)="editTodo($event)" (updatedTable)=updateTable($event)>
+  </app-todo-chips-list>
+</div>
+
+<img class="clear-image-list" src="/assets/icons/clear.svg" (click)="openClearDialog()">
+
+<img class="grass-image-list" src="/assets/icons/grass.svg">
+<img class="palm-right-image-list" src="/assets/icons/palm-left.svg">
+<img class="palm-left-image-list" src="/assets/icons/palm-right.svg">
 
 
-</app-todo-chips-list>
-
-<button (click)="openDialog()"></button>
+<!-- Depricated context menu, just for show -->
 <!-- <p (contextmenu)="onContextMenu($event, todos[1])">Right-click on the items below to show the context menu:</p> -->
 
 <div style="visibility: hidden; position: fixed"
@@ -12,12 +24,14 @@
     [style.top]="contextMenuPosition.y"
     [matMenuTriggerFor]="contextMenu">
 </div>
-<mat-menu #contextMenu="matMenu">
+<mat-menu #contextMenu="matMenu" class="context-menu">
 	<ng-template matMenuContent let-item="item">
+    <span class="chip-context" >
 		<button  (click)="onContextMenuAction1(item)">Edit Task</button>
 		<button *ngIf="item.State"  (click)="onContextMenuAction2(item)">Reactive Task</button>
 		<button *ngIf="!item.State"  disabled>Reactive Task</button>
-	</ng-template>
+    </span>
+  </ng-template>
 </mat-menu>
 
 

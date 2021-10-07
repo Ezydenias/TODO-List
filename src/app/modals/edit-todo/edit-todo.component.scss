@@ -1,0 +1,31 @@
+edit-task{
+ display: flex;
+ flex-direction: row;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+
+textarea{
+  resize: none;
+  height: 100px;
+  opacity: .9;
+}
+
+input{
+  opacity: .9;
+}
+
+p{
+  margin-left: 10px;
+  margin-top: 0px;
+}
+
+.roo-image-edit{
+  height: 200px;
+  opacity: .5f;
+  position: absolute;
+  z-index:0;
+}
+

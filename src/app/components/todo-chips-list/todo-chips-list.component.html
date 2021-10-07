@@ -1,5 +1,6 @@
 <span class="list">
   <span class="elements-grid">
-    <app-todo-chip *ngFor="let todo of todos" [todo]=todo (crossed)=crossedOut($event) (contextmenu)="onContextMenu($event, todo)"></app-todo-chip>
+    <app-todo-chip *ngFor="let todo of todos" [todo]=todo (toggled)=toggled($event) (onEditTodo)="editTodo($event)" (contextmenu)="onContextMenu($event, todo)"></app-todo-chip>
+    <div class="last-margin"></div>
   </span>
 </span>

@@ -1,0 +1,68 @@
+.chip-context {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 150px;
+  place-content: center;
+  align-items: center;
+
+  button{
+    width: 100px;
+  }
+}
+
+.list-centraliser{
+  text-align: -webkit-center;
+}
+
+.grass-image-list{
+  width: 100%;
+  opacity: .5f;
+  position: fixed;
+  z-index:3;
+  bottom: 0;
+  left: 0;
+}
+
+.palm-left-image-list{
+  width: 100%;
+  opacity: .5f;
+  position: fixed;
+  z-index:-1;
+  bottom: 0;
+  left: 0;
+}
+
+.palm-right-image-list{
+  width: 100%;
+  opacity: .5f;
+  position: fixed;
+  z-index:-1;
+  bottom: 0;
+  left: 0;
+}
+
+.clear-image-list{
+  width: 80px;
+  position: fixed;
+  z-index:5;
+  bottom: 10px;
+  left: 10px;
+  filter: drop-shadow(0px 2px 2px #6b6b6b8f);
+}
+
+body{
+  height: 100%;
+}
+
+h1{
+  font-size: 20px;
+  font-family: "Drift","Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: rgb(83, 60, 39);
+}
+
+header{
+  display: flex;
+}

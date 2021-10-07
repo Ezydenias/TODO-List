@@ -11,16 +11,29 @@ app-todo-chip {
 .elements-grid {
   display: grid;
   grid-gap: 10px;
-  @media (max-width: 630px) {
-    width: 400px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
+  @media (max-width: 500px) {
     grid-template-columns: repeat(1, 1fr);
   }
-  @media (min-width: 630px) and (max-width: 1000px) {
-    width: 700px;
+  @media (min-width: 500px) and (max-width: 750px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (min-width: 1000px) {
-    width: 1050px;
+  @media (min-width: 750px) and (max-width: 1000px) {
     grid-template-columns: repeat(3, 1fr);
   }
+  @media (min-width: 1000px) and (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (min-width: 1200px) and (max-width: 1480px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (min-width: 1480px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.last-margin{
+  height: 40px;
 }

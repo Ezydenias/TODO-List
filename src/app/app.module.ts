@@ -5,14 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditTodoComponent } from './modals/edit-todo/edit-todo.component';
+import { ClearTodosComponent } from './modals/clear-todos/clear-todos.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EditTodoComponent,
+    ClearTodosComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,6 +22,7 @@ import { EditTodoComponent } from './modals/edit-todo/edit-todo.component';
     ComponentsModule,
     FormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

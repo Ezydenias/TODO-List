@@ -16,6 +16,7 @@ export class TODOChipsListComponent implements OnInit {
   ];
   @Output() updatedTable = new EventEmitter<ITODO[]>();
   @Output() OnContextMenu = new EventEmitter<any>();
+  @Output() onEditTodo = new EventEmitter<number>();
 
   constructor() {}
 
@@ -28,10 +29,21 @@ export class TODOChipsListComponent implements OnInit {
     this.updatedTable.emit(this.todos);
   }
 
+  toggled(Id:number){
+    // const index = this.todos.findIndex(obj => obj.Id == Id);
+    // console.log(this.todos[index].State);
+    // this.todos[index].State=!this.todos[index].State;
+    this.updatedTable.emit(this.todos);
+  }
+
   onContextMenu(event: MouseEvent, item: ITODO) {
 
     // console.log(event.movementX);
     // console.log(event.screenY);
     this.OnContextMenu.emit({event,item});
+  }
+
+  editTodo(id: number){
+    this.onEditTodo.emit(id);
   }
 }

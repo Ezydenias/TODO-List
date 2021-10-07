@@ -1,1 +1,6 @@
-<div class="chip" [ngClass]="{active: !todo.State, deactive: todo.State}"><span class="text">{{todo.Label}}</span><span *ngIf="todo.State==false" style="flex: 1" (click)="crossOut()"><img src="/assets/icons/cross.svg" ></span></div>
+<div class="chip" [ngClass]="{active: !todo.State, deactive: todo.State}">
+  <span class="text" (click)="toggle()">{{todo.Label}}</span>
+  <span *ngIf="isToday(todo.DueDate) && todo.State==false" style="flex: 1" ><img src="/assets/icons/alarm.svg" ></span>
+  <span *ngIf="todo.State==false" style="flex: 1" (click)="editTodo()"><img src="/assets/icons/hamburger-icon.svg" ></span>
+  <span *ngIf="todo.State==true" style="flex: 1" (click)="editTodo()"><img src="/assets/icons/hamburger-icon-disabled.svg" ></span>
+</div>
