@@ -1,0 +1,6 @@
+{
+	"appId": "com.todoroo.app",
+	"appName": "todo-roo",
+	"webDir": "dist/TODO-ROO",
+	"bundledWebRuntime": false
+}
